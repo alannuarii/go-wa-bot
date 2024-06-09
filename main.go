@@ -12,7 +12,6 @@ import (
 	"go.mau.fi/whatsmeow/types/events"
 	waLog "go.mau.fi/whatsmeow/util/log"
 	_ "github.com/mattn/go-sqlite3"
-	// "github.com/skip2/go-qrcode"
 )
 
 func eventHandler(evt interface{}) {
@@ -45,13 +44,8 @@ func main() {
 		}
 		for evt := range qrChan {
 			if evt.Event == "code" {
-				// Generate QR code
-				// err := qrcode.WriteFile(evt.Code, qrcode.Medium, 256, "qrcode.png")
-				// if err != nil {
-				// 	fmt.Println("Error generating QR code:", err)
-				// 	return
-				// }
-				fmt.Println("QR code generated and saved to qrcode.png", evt.Code)
+
+				fmt.Println("QR code generated: ", evt.Code)
 			} else {
 				fmt.Println("Login event:", evt.Event)
 			}
